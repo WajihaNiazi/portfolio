@@ -39,7 +39,7 @@ const Hero = () => {
           </p>
 
           <motion.a
-            href="/Wajiha-Niazi.pdf"
+            href="/WajihaNiazi.pdf"
             download="Wajiha-Niazi.pdf"
             className="mt-8 inline-block px-8 py-4 bg-[#f5e58c] text-black font-semibold rounded-full shadow-lg hover:bg-[#ddd2a1] hover:scale-110 transition-transform"
             whileHover={{ scale: 1.1 }}

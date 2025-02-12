@@ -3,8 +3,6 @@
 
 An interactive and responsive portfolio showcasing my journey as a Full-Stack Web Developer, featuring projects, skills, experiences, and a contact form with real-time integrations.
 
-![Landing Page](https://res.cloudinary.com/dbfye7vqa/image/upload/v1734545157/Screenshot_2024-12-18_at_10.35.31_PM_sluuyz.png)
-
 <HeroSection />
 
 ---
