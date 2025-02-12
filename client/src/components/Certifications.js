@@ -19,8 +19,10 @@ const Certifications = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <BadgeCheckIcon className="h-16 w-16 mx-auto text-purple-950" />
-          <h2 className="text-3xl font-bold mt-4">Certifications & Training</h2>
+          <BadgeCheckIcon className="h-16 w-16 mx-auto text-[#f5e58c]" />
+          <h2 className="text-3xl font-bold mt-4 text-[#f5e58c]">
+            Certifications & Training
+          </h2>
           <p className="mt-4 text-gray-600">
             Verified credentials that demonstrate my commitment to excellence
             and ongoing professional development.
@@ -34,9 +36,11 @@ const Certifications = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-gray-50 shadow-md p-6 rounded-lg text-center"
+              className="bg-gray-50 shadow-md p-6 rounded-lg text-center transition-all hover:scale-105 hover:shadow-[0_0_15px_#f5e58c]"
             >
-              <h3 className="text-lg font-semibold">{cert.title}</h3>
+              <h3 className="text-lg font-semibold text-[#f5e58c]">
+                {cert.title}
+              </h3>
               <p className="text-sm text-gray-500 mt-2">{cert.year}</p>
             </motion.div>
           ))}

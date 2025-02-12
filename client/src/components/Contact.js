@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -25,7 +27,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        'https://portfolio-2oih.onrender.com/api/contact',
+        'https://portfolio-spbw.onrender.com/api/contact',
         {
           method: 'POST',
           headers: {
@@ -59,7 +61,7 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-gray-800">Get in Touch</h2>
+          <h2 className="text-3xl font-bold text-[#ede3ab]">Get in Touch</h2>
           <p className="mt-4 text-gray-600">
             I’d love to hear from you! Whether it’s a project, job opportunity,
             or just a chat, feel free to reach out.
@@ -75,32 +77,32 @@ const Contact = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <div className="flex items-center space-x-4">
-              <MailIcon className="h-6 w-6 text-purple-950" />
-              <span className="text-gray-700">aqidahaidari@gmail.com</span>
+              <MailIcon className="h-6 w-6 text-[#f5e58c]" />
+              <span className="text-gray-700">wajihaniazi22@gmail.com</span>
             </div>
             <div className="flex items-center space-x-4">
-              <PhoneIcon className="h-6 w-6 text-purple-950" />
-              <span className="text-gray-700">+93 797456324</span>
+              <PhoneIcon className="h-6 w-6 text-[#f5e58c]" />
+              <span className="text-gray-700">+93 793292204</span>
             </div>
             <div className="flex items-center space-x-4">
-              <LocationMarkerIcon className="h-6 w-6 text-purple-950" />
+              <LocationMarkerIcon className="h-6 w-6 text-[#f5e58c]" />
               <span className="text-gray-700">Herat, Afghanistan</span>
             </div>
             <div className="flex justify-left items-center mt-6 space-x-4 text-gray-800">
               <a
-                href="https://github.com/AqidaHaidari"
+                href="https://github.com/WajihaNiazi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-purple-950 hover:text-purple-700"
+                className="flex items-center text-[#f5e58c]  hover:text-gray-800"
               >
                 <FaGithub className="h-6 w-6" />
               </a>
               <span>|</span>
               <a
-                href="https://www.linkedin.com/in/aqida-haidari-34785a226/"
+                href="https://www.linkedin.com/in/wajiha-niazi-9b4991200/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-purple-950 hover:text-purple-700"
+                className="flex items-center text-[#f5e58c] hover:text-gray-800"
               >
                 <FaLinkedin className="h-6 w-6" />
               </a>
@@ -125,7 +127,7 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-950"
+                className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5e58c]"
                 placeholder="Enter your name"
                 required
               />
@@ -143,7 +145,7 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-950"
+                className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5e58c]"
                 placeholder="Enter your email"
                 required
               />
@@ -161,14 +163,14 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows="4"
-                className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-950"
+                className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f5e58c]"
                 placeholder="Enter your message"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full py-3 bg-purple-950 text-white font-semibold rounded-md shadow-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-950"
+              className="w-full py-3 bg-[#f5e58c] text-white font-semibold rounded-md shadow-lg hover:bg-[#f5e58c] focus:outline-none focus:ring-2 focus:ring-[#f5e58c]"
             >
               Send Message
             </button>

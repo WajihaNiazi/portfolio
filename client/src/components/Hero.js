@@ -6,26 +6,22 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className=""
+      className="h-screen bg-[#fff] flex items-center justify-center text-black overflow-hidden"
     >
-      <div className="" />
-
-      <div className="">
+      <div className="container mx-auto px-12 md:flex md:items-center md:justify-between z-10">
         <motion.div
-          className=""
+          className="text-center md:text-left md:w-1/2"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="">
+          <h1 className="text-6xl md:text-7xl font-extrabold font-primary">
             Hi, I’m{' '}
-            <span className="">
-              Aqida Haidari
-            </span>
+            <span className="text-[#f5e58c] drop-shadow-md">Wajiha Niazi</span>
           </h1>
 
-          <p className="">
-            <span className="">
+          <p className="mt-4 text-2xl md:text-3xl font-light font-secondary">
+            <span className="text-gray-700">
               <Typewriter
                 words={[
                   'Creative Web Developer',
@@ -43,9 +39,9 @@ const Hero = () => {
           </p>
 
           <motion.a
-            href="/Aqida-Haidari.pdf"
-            download="Aqida_Haidari_Resume.pdf"
-            className=""
+            href="/Wajiha-Niazi.pdf"
+            download="Wajiha-Niazi.pdf"
+            className="mt-8 inline-block px-8 py-4 bg-[#f5e58c] text-black font-semibold rounded-full shadow-lg hover:bg-[#ddd2a1] hover:scale-110 transition-transform"
             whileHover={{ scale: 1.1 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
@@ -54,7 +50,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className=""
+          className="mt-12 md:mt-0 md:w-1/2 flex justify-center md:justify-end"
           initial={{ y: -10 }}
           animate={{ y: 10 }}
           transition={{
@@ -65,30 +61,12 @@ const Hero = () => {
           }}
         >
           <img
-            src="/profile2.svg"
-            alt="Aqida Haidari"
-            className="w-64 h-64 md:w-80 md:h-80   object-cover"
+            src="/image.jpg"
+            alt="Wajiha Niazi"
+            className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-[#f5e58c]"
           />
         </motion.div>
       </div>
-
-      <motion.div
-        className=""
-        animate={{ y: [0, -20, 0], x: [0, 20, 0] }}
-        transition={{ duration: 3, repeat: Infinity }}
-      />
-
-      <motion.div
-        className=""
-        animate={{ x: [0, -30, 0], y: [0, 30, 0] }}
-        transition={{ duration: 4, repeat: Infinity }}
-      />
-
-      <motion.div
-        className=""
-        animate={{ y: [-15, 15, -15] }}
-        transition={{ duration: 2.5, repeat: Infinity }}
-      />
     </section>
   );
 };

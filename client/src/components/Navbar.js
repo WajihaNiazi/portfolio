@@ -15,19 +15,32 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-colors duration-500 ${scrolled ? 'bg-purple-950 shadow-md' : 'bg-transparent'}`}
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-gradient-to-r from-[#ede3ab] to-[#fff] shadow-lg'
+          : 'bg-transparent'
+      }`}
     >
-      <div className="container mx-auto flex justify-between items-center py-2 px-6">
-        <motion.h1
-          className="text-3xl font-extrabold font-primary text-white tracking-wide hover:text-yellow-400 cursor-pointer"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        {/* Logo */}
+        <motion.div
+          className="flex items-center space-x-3 cursor-pointer"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <img alt="Aqida Haidari" src="/logo.svg" className="h-14 w-14" />
-        </motion.h1>
+          <img
+            alt="Wajiha Niazi"
+            src="/logo.png"
+            className="h-10 w-10 rounded-full shadow-md relative top-2"
+          />
+          <span className="text-black drop-shadow-md text-2xl font-semibold tracking-widest">
+            Wajiha
+          </span>
+        </motion.div>
 
-        <ul className="flex space-x-8 text-lg font-secondary text-white">
+        {/* Navbar Links */}
+        <ul className="hidden md:flex space-x-8 text-lg text-black font-medium">
           {[
             'about',
             'projects',
@@ -36,16 +49,20 @@ const Navbar = () => {
             'experience',
             'contact',
           ].map((section) => (
-            <li key={section}>
+            <motion.li
+              key={section}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
               <Link
                 to={section}
                 smooth={true}
                 duration={500}
-                className="cursor-pointer hover:text-yellow-300 transition-colors"
+                className="cursor-pointer hover:text-[#ede3ab] transition-all" 
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </Link>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>
