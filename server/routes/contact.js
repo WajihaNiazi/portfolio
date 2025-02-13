@@ -3,8 +3,6 @@ const router = express.Router ();
 const Contact = require ('../models/Contact');
 const nodemailer = require ('nodemailer');
 
-const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
-
 // Configure Nodemailer
 const transporter = nodemailer.createTransport ({
   service: 'Gmail',
@@ -27,22 +25,6 @@ router.post ('/', async (req, res) => {
     const newContact = new Contact ({name, email, message});
     await newContact.save ();
 
-    // Send the message to Slack
-    const slackMessage = {
-      text: `*New Portfolio Message*\n\n*Name*: ${name}\n*Email*: ${email}\n*Message*: ${message}`,
-    };
-
-    const slackResponse = await fetch (SLACK_WEBHOOK_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify (slackMessage),
-    });
-
-    if (!slackResponse.ok) {
-      console.error (`Slack API error: ${slackResponse.statusText}`);
-    }
 
     // Send the message via email using Nodemailer
     const mailOptions = {
