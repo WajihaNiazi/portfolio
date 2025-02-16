@@ -11,7 +11,7 @@ app.use(express.json());
 // CORS Configuration
 const corsOptions = {
   origin:
-    process.env.FRONTEND_URL?.replace(/\/$/, "") || "http://localhost:3000", // Remove trailing slash if exists
+   process.env.FRONTEND_URL || "http://localhost:3000", // Remove trailing slash if exists
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
