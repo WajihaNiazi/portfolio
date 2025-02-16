@@ -7,13 +7,33 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+// CORS Configuration
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:3000", // Use environment variable or fallback to localhost
-  methods: ["GET", "POST"],
+  origin:
+    process.env.FRONTEND_URL?.replace(/\/$/, "") || "http://localhost:3000", // Remove trailing slash if exists
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
 
+// Apply CORS Middleware
 app.use(cors(corsOptions));
+
+// Handle CORS Preflight Requests
+app.options("*", cors(corsOptions)); // Respond to preflight requests
+
+// Manually Set Headers for Debugging (Optional)
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    process.env.FRONTEND_URL || "http://localhost:3000"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 // MongoDB Connection
 mongoose
@@ -22,7 +42,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error(err));
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 // Routes
 app.use("/api/projects", require("./routes/projects"));

@@ -6,10 +6,12 @@ const nodemailer = require("nodemailer");
 
 // Configure Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "Gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -22,24 +24,25 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    // Save the message to the database
     const newContact = new Contact({ name, email, message });
     await newContact.save();
-    
-    // Send the message via email using Nodemailer
+
     const mailOptions = {
-      from: process.env.EMAIL,
+      from: email,
       to: process.env.EMAIL,
       subject: `Portfolio Contact Form: ${name}`,
       text: `You have a new contact form submission:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
       replyTo: email,
     };
 
-    await transporter.sendMail(mailOptions);
+    await transporter
+      .sendMail(mailOptions)
+      .catch((err) => console.error("Nodemailer error:", err));
+
     res.status(201).json({ message: "Message sent successfully!" });
   } catch (error) {
-    console.error("Error handling contact submission:", error);
-    res.status(500).json({ error: "Server error" });
+    console.error("Error:", error.message || error);
+    res.status(500).json({ error: "Server error. Check logs for details." });
   }
 });
 
