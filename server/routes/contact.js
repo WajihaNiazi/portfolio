@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
     await newContact.save();
 
     const mailOptions = {
-      from: process.env.EMAIL,
+      from: email,
       to: process.env.EMAIL,
       subject: `Portfolio Contact Form: ${name}`,
       text: `You have a new contact form submission:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
